@@ -5,7 +5,6 @@ var AppView = Backbone.View.extend({
   },
 
   initialize: function() {
-    console.log('AppView inicializada');
     this.$form = $('#log-form');
     this.$logList = $('#log-list');
     this.$author = $('#author');
