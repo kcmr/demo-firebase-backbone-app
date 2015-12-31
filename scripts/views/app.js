@@ -16,7 +16,7 @@ var AppView = Backbone.View.extend({
 
     var newLog = new Log({
       message: this.$message.val(),
-      author: this.$author.val()
+      author: this.$author.val() || 'Anónimo'
     });
 
     if (newLog.isValid()) {
