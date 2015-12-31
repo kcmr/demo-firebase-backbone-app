@@ -3,7 +3,7 @@ var ListView = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'add', this.addLog);
-    this.listenTo(this.collection, 'remove', this.render);
+    this.listenTo(this.collection, 'sync remove', this.render);
   },
 
   render: function() {
