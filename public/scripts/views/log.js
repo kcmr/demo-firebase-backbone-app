@@ -16,6 +16,8 @@ var LogView = Backbone.View.extend({
   },
 
   deleteLog: function() {
-    this.model.destroy();
+    if (confirm('¿Seguro que quieres borrar este log?')) {
+      this.model.destroy();
+    }
   }
 });
