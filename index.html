@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Testing Backbone</title>
+    <script src="scripts/lodash.min.js"></script>
+    <script src="scripts/zepto.min.js"></script>
+    <script src="scripts/backbone-min.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/backbonefire.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <button id="add-log">Añadir log</button>
+
+      <form action="" id="log-form" style="display: none;">
+        <div>
+          <label for="author">Autor</label>
+          <input type="text" id="author" name="author">
+        </div>
+        <label for="message">Mensaje</label>
+        <input type="text" id="message" name="message">
+        <button>Enviar</button>
+      </form>
+
+      <ul id="log-list"></ul>
+    </div>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
