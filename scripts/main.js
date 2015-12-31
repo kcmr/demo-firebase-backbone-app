@@ -20,5 +20,5 @@ $(function() {
   });
 
   App.Router = new Router;
-  Backbone.history.start();
+  Backbone.history.start({ pushState: true });
 });
