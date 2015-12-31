@@ -14,12 +14,17 @@ var AppView = Backbone.View.extend({
   addLog: function(e) {
     e.preventDefault();
 
-    this.collection.add({
+    var newLog = new Log({
       message: this.$message.val(),
       author: this.$author.val()
     });
 
-    App.Router.navigate('', {trigger: true});
+    if (newLog.isValid()) {
+      this.collection.add(newLog.toJSON());
+      App.Router.navigate('', {trigger: true});
+    } else {
+      alert(newLog.validationError);
+    }
   },
 
   // go to add page
