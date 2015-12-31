@@ -1,0 +1,24 @@
+body { font-family: sans-serif; line-height: 1.38; margin: 0; }
+input, button { font: inherit; }
+button { cursor: pointer; background: #fff; border: 1px solid #d9d9d9; border-radius: 4px; padding: .1875em .5em .125em; }
+button:hover,
+button:focus { background: #f0f0f0; }
+.btn-lg {
+  font-size: 1.25em;
+  font-weight: bold;
+  padding-bottom: .1875em;
+}
+.btn-green {
+  background: #C4DAA5;
+  color: green;
+  border-color: green;
+}
+.hidden { display: none; }
+form { padding: 20px; }
+.header {
+  border-bottom: 1px solid #c7c7c7;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+h1 { font-weight: 300; margin: 0; flex: 1; }
