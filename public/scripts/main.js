@@ -3,6 +3,7 @@ var ENV = window.location.hostname.indexOf('trasteos.firebaseapp.com') !== -1 ? 
 var App = {};
 
 $(function() {
+  App.User = new User();
   App.AppView = new AppView({
     el: $('body'),
     collection: new LogList()
@@ -11,10 +12,10 @@ $(function() {
   App.ListView = new ListView({
     collection: new LogList()
   });
-  
+
   App.UserView = new UserView({
     collection: new Users(),
-    model: new User()
+    model: App.User
   }).render();
 
   App.Router = new Router;
