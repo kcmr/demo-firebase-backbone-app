@@ -11,11 +11,18 @@ var UserView = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, 'change', this.render);
     this.fbRef = this.collection.firebase;
+    this.checkUserInSession();
   },
 
   render: function() {
     this.$el.html(this.template(this.model.attributes)).appendTo(this.container);
     return this;
+  },
+
+  checkUserInSession: function() {
+    if (localStorage.getItem('firebase:session::trasteos')) {
+      this.setUser(JSON.parse(localStorage.getItem('firebase:session::trasteos')));
+    }
   },
 
   login: function() {
