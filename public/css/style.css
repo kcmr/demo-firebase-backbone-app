@@ -5,7 +5,6 @@ button:hover,
 button:focus { background: #f0f0f0; }
 .btn-lg {
   font-size: 1.25em;
-  font-weight: bold;
   padding-bottom: .1875em;
 }
 .btn-green {
