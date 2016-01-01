@@ -1,8 +1,3 @@
-// use {{}} instead of <% %> in templates
-_.templateSettings = {
-  interpolate: /\{\{(.+?)\}\}/g
-};
-
 var ENV = window.location.hostname.indexOf('trasteos.firebaseapp.com') !== -1 ? 'pro' : 'dev';
 
 var App = {
