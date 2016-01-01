@@ -1,11 +1,6 @@
 var ENV = window.location.hostname.indexOf('trasteos.firebaseapp.com') !== -1 ? 'pro' : 'dev';
 
-var App = {
-  AppView: null,
-  ListView: null,
-  Router: null
-};
-
+var App = {};
 
 $(function() {
   App.AppView = new AppView({
