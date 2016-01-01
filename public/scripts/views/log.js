@@ -1,6 +1,6 @@
 var LogView = Backbone.View.extend({
   tagName: 'li',
-  template: _.template('<q><%-message%></q> <em>por <b><%-author%></b></em> <button class="delete">Borrar</button>'),
+  template: _.template('<q><%-message%></q> <em>por <b><%-author%></b></em> <button class="delete btn-link">Borrar</button>'),
 
   events: {
     'click .delete': 'deleteLog'
