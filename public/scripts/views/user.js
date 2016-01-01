@@ -22,31 +22,27 @@ var UserView = Backbone.View.extend({
     this.fbRef.authWithOAuthPopup('google', this.onAuthCallback.bind(this));
   },
 
-  onAuthCallback: function(error, data) {
-    if (error) {
-      console.log(error);
-      return;
-    }
-
-    this.model.set('logged', true);
-    this.model.set('name', data.google.cachedUserProfile.given_name);
-    this.model.set('picture', data.google.profileImageURL);
-    this.model.set('uid', data.auth.uid);
-  },
-
   logout: function(e) {
     e.preventDefault();
     this.fbRef.unauth();
     this.model.set('logged', false);
   },
 
-  setUser: function(data) {
-    this.model.set('logged', true);
-    this.model.set('name', data.name);
+  onAuthCallback: function(error, data) {
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    if (data && data.google) {
+      this.setUser(data);
+    }
   },
 
-  add: function(e) {
-    e.preventDefault();
-    App.Router.navigate('add', {trigger: true});
+  setUser: function(data) {
+    this.model.set('logged', true);
+    this.model.set('name', data.google.cachedUserProfile.given_name);
+    this.model.set('picture', data.google.profileImageURL);
+    this.model.set('uid', data.auth.uid);
   }
 });
