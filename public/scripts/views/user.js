@@ -5,8 +5,7 @@ var UserView = Backbone.View.extend({
 
   events: {
     'click #google-login': 'login',
-    'click #logout': 'logout',
-    'click #add-log': 'add'
+    'click #logout': 'logout'
   },
 
   initialize: function() {
