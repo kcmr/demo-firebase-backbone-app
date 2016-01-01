@@ -31,10 +31,10 @@ var AppView = Backbone.View.extend({
   add: function() {
     App.Router.navigate('add', {trigger: true});
   },
-
+  
   showForm: function() {
     this.$form.show();
-    this.$author.focus();
+    this.$message.focus();
     this.$logList.hide();
   },
 
