@@ -17,7 +17,8 @@ var AppView = Backbone.View.extend({
 
     var newLog = new Log({
       message: this.$message.val(),
-      author: this.$author.val() || 'Anónimo'
+      author: App.User.get('name'),
+      uid: App.User.get('uid')
     });
 
     if (newLog.isValid()) {
@@ -41,9 +42,15 @@ var AppView = Backbone.View.extend({
 
   showLogs: function() {
     this.$form.hide();
+    this.$('.login-msg').addClass('hidden');
     this.toggleAddLogButton();
     this.clearForm();
     this.$logList.show();
+  },
+
+  showLoginMessage: function() {
+    App.Router.navigate('', {trigger: true});
+    this.$('.login-msg').removeClass('hidden');
   },
 
   clearForm: function() {
@@ -54,6 +61,7 @@ var AppView = Backbone.View.extend({
   toggleAddLogButton: function() {
     if (App.User.get('logged') === true) {
       this.$('#add-log').removeClass('hidden');
+      this.$('.login-msg').addClass('hidden');
     } else {
       this.$('#add-log').addClass('hidden');
     }
