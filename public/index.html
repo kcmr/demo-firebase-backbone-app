@@ -27,8 +27,11 @@
     <script type="text/x-template" id="login">
       <% if (logged) { %>
         <div class="user-logged">
-          <div class="welcome">Hola <%= name %></div>
-          <a href="#" id="logout">Salir</a>
+          <div class="text">
+            <div class="welcome">Hola <%= name %></div>
+            <a href="#" id="logout">Salir</a>
+          </div>
+          <img src="<%= picture %>" alt="" width="48" class="picture" />
         </div>
       <% } else { %>
         <button id="google-login" class="btn-lg">Accede con Google</button>
