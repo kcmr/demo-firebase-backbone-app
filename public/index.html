@@ -8,9 +8,7 @@
   <body>
     <div id="container">
       <div class="header" id="header">
-        <h1>Log List</h1>
-        <button id="google-login" class="hidden">Acceder con Google</button>
-        <button id="add-log" class="btn-lg btn-green">Añadir log</button>
+        <h1>Logs</h1>
       </div>
 
 
@@ -25,6 +23,17 @@
         <li>Cargando logs…</li>
       </ul>
     </div>
+    
+    <script type="text/x-template" id="login">
+      <% if (logged) { %>
+        <div class="user-logged">
+          <div class="welcome">Hola <%= name %></div>
+          <a href="#" id="logout">Salir</a>
+        </div>
+      <% } else { %>
+        <button id="google-login" class="btn-lg">Accede con Google</button>
+      <% } %>
+    </script>
 
     <script src="scripts/vendor/lodash.min.js"></script>
     <script src="scripts/vendor/zepto.min.js"></script>
@@ -35,8 +44,10 @@
     <script src="scripts/views/app.js"></script>
     <script src="scripts/views/log.js"></script>
     <script src="scripts/views/list.js"></script>
+    <script src="scripts/views/user.js"></script>
     <script src="scripts/routes/router.js"></script>
     <script src="scripts/models/log.js"></script>
+    <script src="scripts/models/user.js"></script>
     <script src="scripts/collections/loglist.js"></script>
   </body>
 </html>
