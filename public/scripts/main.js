@@ -11,6 +11,10 @@ $(function() {
   App.ListView = new ListView({
     collection: new LogList()
   });
+  
+  App.UserView = new UserView({
+    model: new User()
+  }).render();
 
   App.Router = new Router;
 
