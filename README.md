@@ -12,7 +12,6 @@ Demo: [https://trasteos.firebaseapp.com/](https://trasteos.firebaseapp.com/)
 
 - [x] Require login to add new logs
 - [x] Pick author name from auth data
-- [ ] Only allow log deletion to its author
 - [ ] Reduce the use of global variables
 - [ ] Use [RequireJS](https://cdnjs.com/libraries/backbone.js/tutorials/organizing-backbone-using-modules "Organizing Backbone using Modules (require.js)") or maybe [another approach](https://bocoup.com/weblog/organizing-your-backbone-js-application-with-modules "Organizing Your Backbone.js Application With Modules")
 
