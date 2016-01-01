@@ -3,6 +3,7 @@ input, button { font: inherit; }
 button { cursor: pointer; background: #fff; border: 1px solid #d9d9d9; border-radius: 4px; padding: .1875em .5em .125em; }
 button:hover,
 button:focus { background: #f0f0f0; }
+a { color: #0089ff; }
 .btn-lg {
   font-size: 1.25em;
   padding-bottom: .1875em;
@@ -18,6 +19,19 @@ form { padding: 20px; }
   border-bottom: 1px solid #c7c7c7;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
 }
+.header .btn-lg { height: 48px; }
 h1 { font-weight: 300; margin: 0; flex: 1; }
+
+.user-logged {
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.picture {
+  border-radius: 50%;
+  margin-left: 10px;
+}
