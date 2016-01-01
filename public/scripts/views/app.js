@@ -9,6 +9,9 @@ var AppView = Backbone.View.extend({
     this.$logList = $('#log-list');
     this.$author = $('#author');
     this.$message = $('#message');
+
+    Backbone.on('user:logged-in', this.onUserLogin);
+    Backbone.on('user:logged-out', this.onUserLogout);
   },
 
   addLog: function(e) {
@@ -16,7 +19,8 @@ var AppView = Backbone.View.extend({
 
     var newLog = new Log({
       message: this.$message.val(),
-      author: this.$author.val() || 'Anónimo'
+      author: App.User.get('name'),
+      uid: App.User.get('uid')
     });
 
     if (newLog.isValid()) {
@@ -27,25 +31,41 @@ var AppView = Backbone.View.extend({
     }
   },
 
-  // go to add page
   add: function() {
     App.Router.navigate('add', {trigger: true});
   },
 
   showForm: function() {
     this.$form.show();
-    this.$author.focus();
+    this.$('#add-log').addClass('hidden');
+    this.$message.focus();
     this.$logList.hide();
   },
 
-  hideForm: function() {
+  showLogs: function() {
     this.$form.hide();
+    this.$('.login-msg').addClass('hidden');
     this.clearForm();
     this.$logList.show();
+  },
+
+  showLoginMessage: function() {
+    App.Router.navigate('', {trigger: true});
+    this.$('.login-msg').removeClass('hidden');
   },
 
   clearForm: function() {
     this.$message.val('');
     this.$author.val('').focus();
+  },
+
+  onUserLogin: function() {
+    this.$('#add-log').removeClass('hidden');
+    this.$('.login-msg').addClass('hidden');
+  },
+
+  onUserLogout: function() {
+    App.Router.navigate('', {trigger: true});
+    this.$('#add-log').addClass('hidden');
   }
 });

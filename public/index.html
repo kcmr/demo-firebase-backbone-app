@@ -3,23 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <title>Demo Backbone App</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div id="container">
-      <button id="add-log">Añadir log</button>
+    <div id="container" class="container">
+      <div class="header" id="header">
+        <h1>Logs</h1>
+      </div>
 
-      <form action="" id="log-form" style="display: none;">
-        <div>
-          <label for="author">Autor</label>
-          <input type="text" id="author" name="author">
-        </div>
+      <button class="btn-lg btn-block hidden" id="add-log">Añadir log</button>
+
+      <p class="login-msg hidden">Necesitas acceder con Google para añadir logs.</p>
+
+      <form action="" id="log-form" class="hidden">
         <label for="message">Mensaje</label>
         <input type="text" id="message" name="message">
         <button>Enviar</button>
       </form>
 
-      <ul id="log-list"><li>Cargando logs…</li></ul>
+      <ul id="log-list">
+        <li>Cargando logs…</li>
+      </ul>
     </div>
+
+    <script type="text/x-template" id="login">
+      <% if (logged) { %>
+        <div class="user-logged">
+          <div class="text">
+            <div class="welcome">Hola <%= name %></div>
+            <a href="#" id="logout">Salir</a>
+          </div>
+          <img src="<%= picture %>" alt="" width="48" class="picture" />
+        </div>
+      <% } else { %>
+        <button id="google-login" class="btn-lg">Accede con Google</button>
+      <% } %>
+    </script>
 
     <script src="scripts/vendor/lodash.min.js"></script>
     <script src="scripts/vendor/zepto.min.js"></script>
@@ -30,8 +49,11 @@
     <script src="scripts/views/app.js"></script>
     <script src="scripts/views/log.js"></script>
     <script src="scripts/views/list.js"></script>
+    <script src="scripts/views/user.js"></script>
     <script src="scripts/routes/router.js"></script>
     <script src="scripts/models/log.js"></script>
+    <script src="scripts/models/user.js"></script>
     <script src="scripts/collections/loglist.js"></script>
+    <script src="scripts/collections/users.js"></script>
   </body>
 </html>

@@ -5,10 +5,14 @@ var Router = Backbone.Router.extend({
   },
 
   showList: function() {
-    App.AppView.hideForm();
+    App.AppView.showLogs();
   },
 
   addLog: function() {
-    App.AppView.showForm();
+    if (App.User.get('logged') === true) {
+      App.AppView.showForm();
+    } else {
+      App.AppView.showLoginMessage();
+    }
   }
 });
