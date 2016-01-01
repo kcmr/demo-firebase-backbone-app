@@ -9,6 +9,7 @@ var AppView = Backbone.View.extend({
     this.$logList = $('#log-list');
     this.$author = $('#author');
     this.$message = $('#message');
+    Backbone.on('user:logged-change', this.toggleAddLogButton);
   },
 
   addLog: function(e) {
@@ -33,12 +34,14 @@ var AppView = Backbone.View.extend({
 
   showForm: function() {
     this.$form.show();
+    this.$('#add-log').addClass('hidden');
     this.$message.focus();
     this.$logList.hide();
   },
 
-  hideForm: function() {
+  showLogs: function() {
     this.$form.hide();
+    this.toggleAddLogButton();
     this.clearForm();
     this.$logList.show();
   },
@@ -46,5 +49,13 @@ var AppView = Backbone.View.extend({
   clearForm: function() {
     this.$message.val('');
     this.$author.val('').focus();
+  },
+
+  toggleAddLogButton: function() {
+    if (App.User.get('logged') === true) {
+      this.$('#add-log').removeClass('hidden');
+    } else {
+      this.$('#add-log').addClass('hidden');
+    }
   }
 });
