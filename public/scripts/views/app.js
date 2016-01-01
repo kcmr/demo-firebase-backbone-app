@@ -27,11 +27,10 @@ var AppView = Backbone.View.extend({
     }
   },
 
-  // go to add page
   add: function() {
     App.Router.navigate('add', {trigger: true});
   },
-  
+
   showForm: function() {
     this.$form.show();
     this.$message.focus();
