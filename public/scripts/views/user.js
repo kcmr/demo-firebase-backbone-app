@@ -26,6 +26,7 @@ var UserView = Backbone.View.extend({
     e.preventDefault();
     this.fbRef.unauth();
     this.model.set('logged', false);
+    App.Router.navigate('', {trigger: true});
   },
 
   onAuthCallback: function(error, data) {
