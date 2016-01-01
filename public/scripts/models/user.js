@@ -4,5 +4,11 @@ var User = Backbone.Model.extend({
     name: '',
     picture: '',
     uid: ''
+  },
+
+  initialize: function() {
+    this.on('change:logged', function() {
+      Backbone.trigger('user:logged-change');
+    });
   }
 });
