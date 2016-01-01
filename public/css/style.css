@@ -13,6 +13,18 @@ a { color: #0089ff; }
   width: 100%;
   box-sizing: border-box;
 }
+.btn-link {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: #0089ff;
+  text-decoration: underline;
+  border: 0;
+}
+.btn-link:hover,
+.btn-link:focus { background: transparent; }
+.delete:hover,
+.delete:focus { color: #b50c0c; }
 .hidden { display: none; }
 .container { padding: 20px; }
 .header {
