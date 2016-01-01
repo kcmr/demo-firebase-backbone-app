@@ -9,7 +9,9 @@ var AppView = Backbone.View.extend({
     this.$logList = $('#log-list');
     this.$author = $('#author');
     this.$message = $('#message');
-    Backbone.on('user:logged-change', this.toggleAddLogButton);
+
+    Backbone.on('user:logged-in', this.onUserLogin);
+    Backbone.on('user:logged-out', this.onUserLogout);
   },
 
   addLog: function(e) {
@@ -43,7 +45,6 @@ var AppView = Backbone.View.extend({
   showLogs: function() {
     this.$form.hide();
     this.$('.login-msg').addClass('hidden');
-    this.toggleAddLogButton();
     this.clearForm();
     this.$logList.show();
   },
@@ -58,12 +59,13 @@ var AppView = Backbone.View.extend({
     this.$author.val('').focus();
   },
 
-  toggleAddLogButton: function() {
-    if (App.User.get('logged') === true) {
-      this.$('#add-log').removeClass('hidden');
-      this.$('.login-msg').addClass('hidden');
-    } else {
-      this.$('#add-log').addClass('hidden');
-    }
+  onUserLogin: function() {
+    this.$('#add-log').removeClass('hidden');
+    this.$('.login-msg').addClass('hidden');
+  },
+
+  onUserLogout: function() {
+    App.Router.navigate('', {trigger: true});
+    this.$('#add-log').addClass('hidden');
   }
 });

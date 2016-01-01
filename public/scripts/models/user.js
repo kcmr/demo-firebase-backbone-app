@@ -7,8 +7,12 @@ var User = Backbone.Model.extend({
   },
 
   initialize: function() {
+    this.on('destroy', function() {
+      Backbone.trigger('user:logged-out');
+    });
+
     this.on('change:logged', function() {
-      Backbone.trigger('user:logged-change');
+      Backbone.trigger('user:logged-in');
     });
   }
 });
