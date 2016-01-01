@@ -13,6 +13,7 @@ $(function() {
   });
   
   App.UserView = new UserView({
+    collection: new Users(),
     model: new User()
   }).render();
 
