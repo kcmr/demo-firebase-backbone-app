@@ -20,7 +20,8 @@ var AppView = Backbone.View.extend({
     var newLog = new Log({
       message: this.$message.val(),
       author: App.User.get('name'),
-      uid: App.User.get('uid')
+      uid: App.User.get('uid'),
+      date: this.formattedDate()
     });
 
     if (newLog.isValid()) {
@@ -68,5 +69,10 @@ var AppView = Backbone.View.extend({
   onUserLogout: function() {
     App.Router.navigate('', {trigger: true});
     this.$('#add-log').addClass('hidden');
+  },
+
+  formattedDate: function() {
+    var d = new Date();
+    return d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
   }
 });

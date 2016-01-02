@@ -1,7 +1,8 @@
 var Log = Backbone.Model.extend({
   defaults: {
     message: '',
-    author: ''
+    author: '',
+    date: ''
   },
 
   validate: function(attrs) {
