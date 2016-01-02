@@ -45,6 +45,7 @@ var AppView = Backbone.View.extend({
   showLogs: function() {
     this.$form.hide();
     this.$('.login-msg').addClass('hidden');
+    this.$('#add-log').toggleClass('hidden', !App.User.get('logged'));
     this.clearForm();
     this.$logList.show();
   },
