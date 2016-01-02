@@ -54,3 +54,9 @@ h1 { font-weight: 300; margin: 0; flex: 1; }
   border-radius: 4px;
   color: #b50c0c;
 }
+
+.date {
+  color: #949292;
+  font-style: italic;
+  font-size: 14px;
+}
