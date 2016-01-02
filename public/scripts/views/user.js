@@ -54,5 +54,21 @@ var UserView = Backbone.View.extend({
     this.model.set('picture', data.google.profileImageURL);
     this.model.set('uid', data.auth.uid);
     if (!App.User) App.User = this.model;
+
+    this.fbRef.orderByChild('uid')
+      .equalTo(data.auth.uid)
+      .once('value', function(snapshot) {
+        this.addUser(data, snapshot);
+      }.bind(this));
+  },
+
+  addUser: function(data, snapshot) {
+    if (!!snapshot.val()) return; // user exits
+
+    this.fbRef.child(data.auth.uid).set({
+      name: data.google.cachedUserProfile.given_name,
+      uid: data.auth.uid,
+      googleData: data.google
+    });
   }
 });
