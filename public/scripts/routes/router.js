@@ -9,7 +9,7 @@ var Router = Backbone.Router.extend({
   },
 
   addLog: function() {
-    if (App.User.get('logged') === true) {
+    if (App.User && App.User.get('logged') === true) {
       App.AppView.showForm();
     } else {
       App.AppView.showLoginMessage();

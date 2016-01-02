@@ -53,5 +53,6 @@ var UserView = Backbone.View.extend({
     this.model.set('name', data.google.cachedUserProfile.given_name);
     this.model.set('picture', data.google.profileImageURL);
     this.model.set('uid', data.auth.uid);
+    if (!App.User) App.User = this.model;
   }
 });
