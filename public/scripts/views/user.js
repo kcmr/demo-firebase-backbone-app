@@ -55,8 +55,6 @@ var UserView = Backbone.View.extend({
     this.model.set('uid', data.auth.uid);
     if (!App.User) App.User = this.model;
 
-    console.log(this.collection);
-
     this.fbRef.orderByChild('uid')
       .equalTo(data.auth.uid)
       .once('value', function(snapshot) {
