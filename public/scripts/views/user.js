@@ -20,8 +20,8 @@ var UserView = Backbone.View.extend({
   },
 
   checkUserInSession: function() {
-    if (localStorage.getItem('firebase:session::trasteos')) {
-      this.setUser(JSON.parse(localStorage.getItem('firebase:session::trasteos')));
+    if (this.fbRef.getAuth()) {
+      this.setUser(this.fbRef.getAuth());
     }
   },
 
